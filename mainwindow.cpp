@@ -19,30 +19,29 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_ajouter_3_clicked()
 
+
+void MainWindow::on_pushButton_ajouter_clicked()
+{
+    int id=ui->lineEdit_ID->text().toInt();
+    QString nom=ui->lineEdit_nom->text();
+    QString prenom=ui->lineEdit_prenom->text();
+    Etudiant E(id,nom,prenom);
+
+    bool test=E.ajouter();
+    if(test)
     {
-        int id=ui->lineEdit_ID->text().toInt();
-        QString nom=ui->lineEdit_nom->text();
-        QString prenom=ui->lineEdit_prenom->text();
-        Etudiant E(id,nom,prenom);
-
-        bool test=E.ajouter();
-        if(test)
-        {
-              QMessageBox::information(nullptr, QObject::tr("OK") ,
-                                       QObject::tr("Ajout effectué "
-                                                   "Clicked Cancel to exit.") , QMessageBox::Cancel);
-        }
-        else
-              QMessageBox::critical(nullptr, QObject::tr("not OK") ,
-                                       QObject::tr("Ajout non effectué "
-                                                   "Clicked Cancel to exit.") , QMessageBox::Cancel);
-
+          QMessageBox::information(nullptr, QObject::tr("OK") ,
+                                   QObject::tr("Ajout effectué "
+                                               "Clicked Cancel to exit.") , QMessageBox::Cancel);
     }
+    else
+          QMessageBox::critical(nullptr, QObject::tr("not OK") ,
+                                   QObject::tr("Ajout non effectué "
+                                               "Clicked Cancel to exit.") , QMessageBox::Cancel);
+}
 
-
-void MainWindow::on_pushButton_supprimer_2_clicked()
+void MainWindow::on_pushButton_supprimer_clicked()
 {
     int id=ui->lineEdit_ID_2->text().toInt();
     bool test=Etmp.supprimer(id);

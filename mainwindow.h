@@ -18,9 +18,13 @@ public:
 private slots:
 
 
-    void on_pushButton_ajouter_3_clicked();
 
-    void on_pushButton_supprimer_2_clicked();
+
+
+
+    void on_pushButton_ajouter_clicked();
+
+    void on_pushButton_supprimer_clicked();
 
 private:
     Ui::MainWindow *ui;
